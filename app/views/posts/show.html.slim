@@ -7,3 +7,5 @@ div.row
       div.caption
         h6= @post.created_at.to_time.strftime('%B %e at %l:%M %p')
         p= @post.caption
+        p
+          = link_to 'Edit', edit_post_path(@post), class: 'btn btn-default'
