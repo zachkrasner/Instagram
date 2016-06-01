@@ -1,0 +1,7 @@
+h1 Form
+
+= simple_form_for @post do |f|
+  = f.input :caption, label: 'Enter a caption', error: 'Caption is mandatory, please specify one'
+  = f.input :image
+  br
+  = f.button :submit
