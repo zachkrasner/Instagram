@@ -1,1 +1,10 @@
-h1 Railstagram
+-@posts.reverse.each do |post|
+  div.row
+    div.col-xs-12.col-sm-6.col-sm-offset-3
+      div.thumbnail
+        = link_to (image_tag post.image.url(:medium), class: 'img-responsive'), post_path(post)
+        div.caption
+          h6= post.created_at.to_time.strftime('%B %e at %l:%M %p')
+          p= post.caption
+            = link_to 'View', post_path(post), class: 'btn btn-default'
+            = link_to 'Edit', edit_post_path(post), class: 'btn btn-default'
