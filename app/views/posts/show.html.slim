@@ -1,14 +1,8 @@
+= link_to 'Back', posts_path
+= render "post", post: @post
 
-div.row
-  div.col-xs-12.col-sm-6.col-sm-offset-3
-    = link_to 'Back', posts_path
-    div.thumbnail
-      = link_to (image_tag @post.image.url(:medium), class: 'img-responsive'), post_path(@post)
-      div.caption
-        h6.date= @post.created_at.to_time.strftime('%B %e at %l:%M %p')
-        p= @post.caption
-
-        -if @post.user.id == current_user.id
-          p.btn-group
-            = link_to 'Edit', edit_post_path(@post), class: 'btn btn-default'
-            = link_to 'Delete', post_path(@post), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-danger'
+div.center-block.text-center
+  -if @post.user.id == current_user.id
+    p.btn-group
+      = link_to 'Edit', edit_post_path(@post), class: 'btn btn-default'
+      = link_to 'Delete', post_path(@post), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-danger'

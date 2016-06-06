@@ -10,7 +10,7 @@ nav.navbar.navbar-default
       ul.nav.navbar-nav.navbar-right
         - if user_signed_in?
           li
-            = link_to "New Post", new_post_path
+            = link_to "Upload", new_post_path
           li
             = link_to "Logout (#{current_user.username})", destroy_user_session_path, method: :delete
         - else

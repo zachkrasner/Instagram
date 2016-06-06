@@ -1,11 +1,2 @@
 -@posts.reverse.each do |post|
-  div.row
-    div.col-xs-12.col-sm-6.col-sm-offset-3
-      div.thumbnail.post style="padding:0;"
-        div.caption style="padding-bottom: 10px;"
-          h6.pull-left= post.user.username
-          h6.date.pull-right= post.created_at.to_time.strftime('%B %e at %l:%M %p')
-          span.clearfix
-        = link_to (image_tag post.image.url(:medium), class: 'img-responsive'), post_path(post)
-        div.caption
-          p= post.caption
+  = render "post", post: post

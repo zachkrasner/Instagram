@@ -15,6 +15,7 @@
 */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import 'ionicons';
 
 #main_container {
  padding-top: 30px;
@@ -27,4 +28,18 @@
 .date {
   font-weight: normal;
   color: #ccc;
+}
+.comment-form {
+  border-top: 1px solid #ddd;
+  padding-top:8px;
+  i {
+    color: #ccc;
+  }
+  input {
+    display: inline-block;
+    width: 90%;
+    padding: 6px;
+    margin-left: 10px;
+    border: 0;
+  }
 }

@@ -1,0 +1,23 @@
+div.row
+  div.col-xs-12.col-sm-6.col-sm-offset-3
+    div.thumbnail.post style="padding:0;"
+      div.caption style="padding-bottom: 10px;"
+        h6.pull-left= post.user.username
+        h6.date.pull-right= post.created_at.to_time.strftime('%B %e at %l:%M %p')
+        span.clearfix
+      = link_to (image_tag post.image.url(:medium), class: 'img-responsive'), post_path(post)
+      div.caption
+        p= post.caption
+        .comments
+          - if post.comments
+            - post.comments.each do |comment|
+              p
+                strong>= comment.user.username
+                = comment.content
+                - if comment.user == current_user
+                  = link_to post_comment_path(post, comment), method: :delete, data: { confirm: "Are you sure?"}, class: "pull-right"
+                    i.icon.ion-close
+        .comment-form
+          = form_for([post, post.comments.new], remote: true) do |f|
+            i.icon.ion-chatbox.float-left
+            = f.text_field :content, placeholder: 'Add a comment...'
