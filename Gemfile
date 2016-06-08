@@ -34,6 +34,8 @@ gem 'paperclip'
 gem 'simple_form'
 gem 'devise'
 gem 'ionicons-rails'
+# Pagination
+gem 'kaminari'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
