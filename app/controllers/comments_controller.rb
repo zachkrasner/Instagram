@@ -19,7 +19,10 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user.id
 
     if @comment.save
-      redirect_to :back
+      respond_to do |format|
+        format.html { redirect_to posts_path }
+        format.js
+      end
     else
       flash[:alert] = "Check the comment form, something went horribly wrong."
       render root_path
@@ -27,9 +30,14 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    @comment.destroy
-    flash[:alert] = "Comment removed."
-    redirect_to :back
+    if @comment.user_id = current_user.id
+      if @comment.destroy
+        respond_to do |format|
+          format.html { redirect_to posts_path }
+          format.js
+        end
+      end
+    end
   end
 
   private
