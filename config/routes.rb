@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   resources :posts do
     resources :comments
   end
-  
-  get ':username', to: 'profiles#show', as: :profile
+
+  get :username, to: 'profiles#show', as: :profile
 end
 
   # The priority is based upon order of creation: first created -> highest priority.

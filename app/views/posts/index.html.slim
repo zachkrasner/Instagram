@@ -1,5 +1,4 @@
-#posts
-  -@posts.each do |post|
-    = render "post", post: post
+-@posts.each do |post|
+  = render "post", post: post
 
 .text-center.center-block= paginate @posts
