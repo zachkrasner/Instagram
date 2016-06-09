@@ -1,0 +1,13 @@
+h1 = @user.username
+
+-@posts.in_groups_of(3) do |group|
+  .row
+    -group.each do |post|
+      - if post
+        div.col-md-4
+          .thumbnail
+            .img-holder
+              = link_to (image_tag post.image.url(:medium), class: "img-reponsive"), post_path(post)
+            p.caption = post.caption
+
+.text-center.center-block = paginate @posts
