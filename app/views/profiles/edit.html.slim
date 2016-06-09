@@ -1,0 +1,10 @@
+= link_to "Back", :back
+
+h1 = "Update profile for #{@user.username}"
+
+= simple_form_for @user, url: {action: "update"} do |f|
+  p Update your bio:
+  = f.text_area :bio, label: false, rows: 4
+
+  br
+  = f.button :submit

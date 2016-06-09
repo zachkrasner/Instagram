@@ -9,6 +9,8 @@ nav.navbar.navbar-default
     .collapse.navbar-collapse#bs-navbar-collapse-1
       ul.nav.navbar-nav.navbar-right
         - if user_signed_in?
+          li style="font-weight:bold;"
+            = link_to current_user.username, profile_path(current_user.username)
           li
             = link_to "Upload", new_post_path
           li
