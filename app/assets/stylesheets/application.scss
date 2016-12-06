@@ -29,12 +29,13 @@
   font-weight: normal;
   color: #ccc;
 }
+.caption i {
+  color: #ccc;
+}
 .comment-form {
   border-top: 1px solid #ddd;
   padding-top:8px;
-  i {
-    color: #ccc;
-  }
+
   input {
     display: inline-block;
     width: 90%;
@@ -50,4 +51,7 @@
 .img-holder {
   height: 240px;
   overflow: hidden;
+}
+.avatar_holder {
+  margin-right: 30px;
 }

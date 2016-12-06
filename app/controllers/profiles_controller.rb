@@ -26,11 +26,12 @@ class ProfilesController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:bio)
+    params.require(:user).permit(:bio, :avatar)
   end
 
   def get_user
-    @user = User.find_by(username: params[:username])
+    username = params[:username].downcase
+    @user = User.where('lower(username) = ?', username).first
   end
 
 end

@@ -1,10 +1,22 @@
-= link_to "Back", :back
+.container
+  .row
+    = link_to "Back", profile_path(@user.username)
 
-h1 = "Update profile for #{@user.username}"
+  .row
+    h1 = "Update profile for #{@user.username}"
 
-= simple_form_for @user, url: {action: "update"} do |f|
-  p Update your bio:
-  = f.text_area :bio, label: false, rows: 4
+  = simple_form_for @user, url: {action: "update"}, html: { multipart: true } do |f|
+    .row
+      .form-group
+        h4 Change your profile image:
+        .img-circle
+          = image_tag @user.avatar.url(:thumb), class: "img-circle"
+        = f.file_field :avatar, onChange: 'loadFile(event)'
 
-  br
-  = f.button :submit
+    .row
+      .form-group
+        h4 Update your bio:
+        = f.text_area :bio, label: false, rows: 4, class: "form-control"
+
+    .row
+      = f.button :submit

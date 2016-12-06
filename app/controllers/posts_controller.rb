@@ -1,7 +1,8 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_post, only: [:show, :edit, :update, :destroy, :like]
   before_action :owns_post, only: [:edit, :update, :destroy]
+
 
   def index
     @posts = Post.all.order('created_at DESC').page params[:page]
@@ -44,6 +45,14 @@ class PostsController < ApplicationController
   def destroy
     @post.destroy
     redirect_to posts_path
+  end
+
+  def like
+    @post.liked_by current_user
+    respond_to do |format|
+      format.html { redirect_to post_path(@post) }
+      format.js
+    end
   end
 
 

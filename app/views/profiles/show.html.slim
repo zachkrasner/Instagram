@@ -1,9 +1,14 @@
 .row
   .container
-    h1 = @user.username
-    h4 = @user.bio
-    - if @user == current_user
-      = link_to "Edit Profile", edit_profile_path
+    - if @user.avatar.exists?
+      .div.pull-left.avatar_holder
+        = image_tag @user.avatar.url(:thumb), class: "img-circle"
+
+    .div.pull-left
+      h1 = @user.username
+      h4 = @user.bio
+      - if @user == current_user
+        = link_to "Edit Profile", edit_profile_path
 
 .user_posts
   -@posts.in_groups_of(3) do |group|
